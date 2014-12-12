@@ -1,0 +1,35 @@
+
+
+install ruby :
+
+$ brew install ruby
+
+>> ruby will be installed in /bin
+
+intall fog:
+
+$ Sudo gem install fog
+
+Using Amazon EC2 and fog
+
+create a new user and attach policy to enable creation of machines. note Access Key Id and Secret Access Key
+
+$ touch AWS.rb  // to create file - I created this in /Users/My_Name/ruby
+
+$Open AWS.rb // this will open sublime text
+
+AWS.rb file text :
+
+require 'rubygems'
+require 'fog'
+
+# create a connection
+connection = Fog::Compute.new({
+  :provider                 => 'AWS',
+  :aws_access_key_id        => 'YOUR_AWS_ACCESS_KEY_ID',
+  :aws_secret_access_key    => 'YOUR_AWS_SECRET_ACCESS_KEY'
+})
+
+server = connection.servers.create #create server
+
+
