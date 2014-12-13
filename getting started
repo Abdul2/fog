@@ -23,7 +23,7 @@ AWS.rb file text :
 require 'fog'
 fog = Fog::Compute.new(
   :provider => 'AWS',
-  :region=>'eu-west-1',
+  :region=>'eu-west-1', # this must agree with the image location - line 33 and pey-pair-name
   :aws_access_key_id => 'yyy',
   :aws_secret_access_key => 'xxxx'
 )
